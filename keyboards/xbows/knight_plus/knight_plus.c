@@ -147,6 +147,14 @@
         rgb_matrix_set_color(50, 0xFF, 0xFF, 0xFF);
         rgb_matrix_set_color(82, 0xFF, 0xFF, 0xFF);
     }
+    else if (layer_state_is(3)) {
+        rgb_matrix_set_color(50, 0xFF, 0xFF, 0xFF);
+        rgb_matrix_set_color(58, 0xFF, 0xFF, 0xFF);
+    }
+    else if (layer_state_is(4)) {
+        rgb_matrix_set_color(50, 0xFF, 0xFF, 0xFF);
+        rgb_matrix_set_color(43, 0xFF, 0xFF, 0xFF);
+    }
     else if (layer_state_is(6)) { // TODO: this config doesn't work.
         rgb_matrix_set_color(50, 0xFF, 0x00, 0x00);
         rgb_matrix_set_color(81, 0xFF, 0xFF, 0xFF);
