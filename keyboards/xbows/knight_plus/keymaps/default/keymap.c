@@ -20,6 +20,20 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_RCTL_TAB] = ACTION_TAP_DANCE_DOUBLE(KC_RCTL, KC_TAB),
 };
 
+// combos definitions
+const uint16_t PROGMEM esc_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM alfred_combo[] = {KC_F, KC_J, COMBO_END};
+/* const uint16_t PROGMEM layer1_combo[] = {KC_D, KC_K, COMBO_END}; */
+const uint16_t PROGMEM lang_ja_combo[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM lang_en_combo[] = {KC_S, KC_D, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(esc_combo, KC_ESC),
+    COMBO(alfred_combo,  LGUI(KC_J)),
+    /* COMBO(layer1_combo,  TG(1)), */ // layer切り替え後、そのlayerのKCになってしまうためtoggleできない
+    COMBO(lang_ja_combo, LCTL(LSFT(KC_J))),
+    COMBO(lang_en_combo, LCTL(LSFT(KC_SCLN))),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT(
             KC_ESC  , LCTL(LSFT(LGUI(KC_4))) , KC_F2   , KC_F3  , KC_F4   , KC_F5           , KC_F6           , KC_F7   , KC_F8 , KC_F9   , KC_F10  , KC_F11  , KC_F12  , KC_DEL  , KC_PSCR , // 15 keys

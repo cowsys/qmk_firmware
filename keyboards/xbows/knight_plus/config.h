@@ -25,8 +25,8 @@
 #define DEBOUNCE 3
 
 #define AUTO_SHIFT_REPEAT
-//#define RGBLIGHT_LAYERS
 
+#define COMBO_COUNT 4
 
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_LED_PROCESS_LIMIT 18
