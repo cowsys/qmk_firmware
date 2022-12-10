@@ -50,12 +50,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_BTN1 , KC_BTN2 , KC_BTN3      , KC_BTN4 , KC_TRNS  , KC_WREF ,
             KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_TRNS , KC_WBAK      , KC_TRNS , KC_WFWD) ,
 	[2] = LAYOUT(
-            KC_NO , KC_NO , KC_NO , KC_NO                  , KC_NO            , KC_NO , KC_NO , KC_NO                     , KC_NO                     , KC_NO                      , KC_NO                , KC_NO , KC_NO , KC_NO , KC_NO ,
-            KC_NO , KC_NO , KC_NO , KC_NO                  , KC_NO            , KC_NO , KC_NO , LCTL(LALT(KC_RIGHT))      , LCTL(LALT(KC_LEFT))       , KC_NO                      , KC_NO                , KC_NO , KC_NO , KC_NO ,
-            KC_NO , KC_NO , KC_NO , KC_NO                  , KC_NO            , KC_NO , KC_NO , LCTL(LALT(LSFT(KC_LEFT))) , LCTL(LALT(LSFT(KC_UP)))   , KC_NO                      , KC_NO                , KC_NO , KC_NO , KC_NO , KC_NO ,
-            KC_NO, LCTL(LALT(KC_D)) , LCTL(LALT(KC_T)) , LALT(LCMD(KC_D))       , LALT(LCMD(KC_G)) , KC_NO , KC_NO , LALT(LGUI(KC_LEFT))       , LALT(LGUI(KC_DOWN))       , LALT(LGUI(KC_UP))          , LALT(LGUI(KC_RIGHT)) , KC_NO , KC_NO , KC_NO , KC_NO ,
-            KC_LSFT , LCTL(LALT(LGUI(KC_D))) , LCTL(LALT(LGUI(KC_T))) , KC_NO , KC_NO            , KC_NO , KC_NO , KC_NO                     , LCTL(LALT(LSFT(KC_DOWN))) , LCTL(LALT(LSFT(KC_RIGHT))) , KC_NO                , KC_NO , KC_NO , KC_NO ,
-            KC_NO , KC_NO , KC_NO , KC_NO                  , KC_NO            , KC_NO , KC_NO , KC_NO                     , KC_NO                     , KC_TRNS                    , KC_NO                , KC_NO , KC_NO),
+            KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO      , KC_NO , KC_NO               , KC_NO                     , KC_NO                      , KC_NO                , KC_NO , KC_NO  , KC_NO , KC_NO ,
+            KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO  /*  , */    , KC_NO               , LCTL(LALT(KC_RIGHT))      , LCTL(LALT(KC_LEFT))        , KC_NO                , KC_NO , KC_NO  , KC_NO , KC_NO ,
+            KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO   /* , */    , KC_NO               , LCTL(LALT(LSFT(KC_LEFT))) , LCTL(LALT(LSFT(KC_UP)))    , KC_NO                , KC_NO , KC_NO  , KC_NO , KC_NO , KC_NO ,
+            KC_NO   , LCTL(LALT(KC_D))       , LCTL(LALT(KC_T))       , LALT(LCMD(KC_D)) , LALT(LCMD(KC_G)) , KC_NO      , KC_NO , LALT(LGUI(KC_LEFT)) , LALT(LGUI(KC_DOWN))       , LALT(LGUI(KC_UP))          , LALT(LGUI(KC_RIGHT)) , KC_NO , KC_NO  , KC_NO , KC_NO ,
+            KC_LSFT , LCTL(LALT(LGUI(KC_D))) , LCTL(LALT(LGUI(KC_T))) , KC_NO            , KC_NO            , KC_NO      , KC_NO , KC_NO               , LCTL(LALT(LSFT(KC_DOWN))) , LCTL(LALT(LSFT(KC_RIGHT))) , KC_NO                , KC_NO , KC_NO  , KC_NO ,
+            KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO      , KC_NO , KC_NO               , KC_NO                     , KC_TRNS                    , KC_NO                , KC_NO , KC_NO) ,
 	[3] = LAYOUT(
             KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO , KC_NO  , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO ,
             KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO , KC_NO  , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO ,
