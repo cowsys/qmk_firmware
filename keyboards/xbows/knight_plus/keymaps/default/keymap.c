@@ -43,12 +43,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LSFT , KC_Z                   , KC_X    , KC_C   , KC_V    , KC_B            , KC_ENT          , KC_N    , KC_M  , KC_COMM , KC_DOT  , KC_SLSH , KC_RSFT , KC_UP   ,           // 14 keys
             KC_LCTL , KC_LALT                , KC_LGUI          , KC_SPC  , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB) , KC_SPC  ,         KC_RGUI , TG(1)   , TG(2)   , KC_LEFT , KC_DOWN , KC_RGHT), // 13 keys
 	[1] = LAYOUT(
-            KC_ESC  , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS      , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_CALC , KC_MYCM , KC_TRNS , KC_TRNS , NK_TOGG , QK_BOOT ,
-            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS      , KC_TRNS , KC_MS_L , KC_MS_D , KC_MS_U , KC_MS_R , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
-            RGB_TOG , RGB_MOD , RGB_VAI , KC_TRNS            , LGUI(KC_W)   , KC_TRNS , KC_END  , KC_PGDN , KC_PGUP , KC_HOME , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
-            KC_TRNS , KC_TRNS , RGB_VAD , LCTL(LSFT(KC_TAB)) , LCTL(KC_TAB) , KC_TRNS , KC_TRNS , KC_WH_L , KC_WH_D , KC_WH_U , KC_WH_R , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS ,
-            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS      , KC_TRNS , KC_TRNS , KC_BTN1 , KC_BTN2 , KC_BTN3 , KC_BTN4 , KC_BTN5 , KC_TRNS , KC_WREF ,
-            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS      , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_WBAK , KC_TRNS , KC_WFWD),
+            KC_ESC  , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_CALC , KC_MYCM , KC_TRNS , KC_TRNS  , NK_TOGG , QK_BOOT ,
+            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_MS_L                      , KC_MS_D , KC_MS_U , KC_MS_R , KC_TRNS , KC_TRNS  , KC_TRNS  , KC_TRNS ,
+            RGB_TOG , RGB_MOD , RGB_VAI , KC_TRNS    , LGUI(KC_R) , KC_TRNS , KC_TRNS                      , KC_DOWN , KC_UP   , KC_TRNS   , KC_TRNS , KC_TRNS  , KC_TRNS  , KC_TRNS , KC_TRNS ,
+            KC_TRNS , KC_TRNS , RGB_VAD , LGUI(KC_W) , KC_TRNS    , KC_TRNS , KC_TRNS , LCTL(LSFT(KC_TAB)) , KC_WH_D , KC_WH_U , LCTL(KC_TAB) , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS ,
+            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_BTN1 , KC_BTN2 , KC_BTN3      , KC_BTN4 , KC_TRNS  , KC_WREF ,
+            KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_TRNS , KC_WBAK      , KC_TRNS , KC_WFWD) ,
 	[2] = LAYOUT(
             KC_NO , KC_NO , KC_NO , KC_NO                  , KC_NO            , KC_NO , KC_NO , KC_NO                     , KC_NO                     , KC_NO                      , KC_NO                , KC_NO , KC_NO , KC_NO , KC_NO ,
             KC_NO , KC_NO , KC_NO , KC_NO                  , KC_NO            , KC_NO , KC_NO , LCTL(LALT(KC_RIGHT))      , LCTL(LALT(KC_LEFT))       , KC_NO                      , KC_NO                , KC_NO , KC_NO , KC_NO ,
