@@ -26,7 +26,7 @@
 
 #define AUTO_SHIFT_REPEAT
 
-#define COMBO_COUNT 4
+#define COMBO_COUNT 5
 
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_LED_PROCESS_LIMIT 18

@@ -26,22 +26,24 @@ const uint16_t PROGMEM alfred_combo[] = {KC_F, KC_J, COMBO_END};
 /* const uint16_t PROGMEM layer1_combo[] = {KC_D, KC_K, COMBO_END}; */
 const uint16_t PROGMEM lang_ja_combo[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM lang_en_combo[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM lang_combo[] = {KC_D, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(alfred_combo,  LGUI(KC_J)),
     /* COMBO(layer1_combo,  TG(1)), */ // layer切り替え後、そのlayerのKCになってしまうためtoggleできない
     COMBO(lang_ja_combo, LCTL(LSFT(KC_J))),
     COMBO(lang_en_combo, LCTL(LSFT(KC_SCLN))),
+    COMBO(lang_combo,    LGUI(KC_SPC))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT(
-            KC_ESC  , LCTL(LSFT(LGUI(KC_4))) , KC_F2   , KC_F3  , KC_F4           , KC_F5             , KC_F6   , KC_F7   , KC_F8 , KC_F9   , KC_F10  , KC_F11  , KC_F12   , KC_DEL     , KC_PSCR    , // 15 keys
-            KC_GRV  , KC_1                   , KC_2    , KC_3   , KC_4            , KC_5          /*  , */      , KC_6    , KC_7  , KC_8    , KC_9    , KC_0    , KC_MINS  , KC_EQL     , KC_BSPC    , // 14 keys
-            KC_TAB  , KC_Q                   , KC_W    , KC_E   , KC_R            , KC_T           /* , */      , KC_Y    , KC_U  , KC_I    , KC_O    , KC_P    , KC_LBRC  , KC_RBRC    , KC_BSLS    , TG(4)      , // 15 keys
-            KC_CAPS , KC_A                   , KC_S    , KC_D   , KC_F            , KC_G              , KC_BSPC , KC_H    , KC_J  , KC_K    , KC_L    , KC_SCLN , KC_QUOT  , KC_ENT     , TG(3)      , // 15 keys
-            KC_LSFT , KC_Z                   , KC_X    , KC_C   , KC_V            , KC_B              , KC_ENT  , KC_N    , KC_M  , KC_COMM , KC_DOT  , KC_SLSH , KC_BSLS  , KC_UP      , // 14 keys
-            KC_LCTL , KC_LALT                , KC_LGUI , KC_SPC , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB)   , KC_SPC  , KC_RGUI , TG(1) , TG(2)   , KC_LEFT , KC_DOWN , KC_RGHT) , // 13 keys
+            KC_ESC  , LCTL(LSFT(LGUI(KC_4))) , KC_F2   , KC_GRV , KC_MINS         , KC_EQL            , KC_F6   ,KC_F7    , KC_LBRC , KC_RBRC  , KC_BSLS , KC_F11  , KC_F12   , KC_DEL     , KC_PSCR    , // 15 keys
+            KC_GRV  , KC_1                   , KC_2    , KC_3   , KC_4            , KC_5          /*  , */      , KC_6    , KC_7     , KC_8    , KC_9    , KC_0    , KC_MINS  , KC_EQL     , KC_BSPC    , // 14 keys
+            KC_TAB  , KC_Q                   , KC_W    , KC_E   , KC_R            , KC_T           /* , */      , KC_Y    , KC_U     , KC_I    , KC_O    , KC_P    , KC_LBRC  , KC_RBRC    , KC_BSLS    , TG(4)      , // 15 keys
+            KC_CAPS , KC_A                   , KC_S    , KC_D   , KC_F            , KC_G              , KC_BSPC , KC_H    , KC_J     , KC_K    , KC_L    , KC_SCLN , KC_QUOT  , KC_ENT     , TG(3)      , // 15 keys
+            KC_LSFT , KC_Z                   , KC_X    , KC_C   , KC_V            , KC_B              , KC_ENT  , KC_N    , KC_M     , KC_COMM , KC_DOT  , KC_SLSH , KC_RSFT  , KC_UP      , // 14 keys
+            KC_LCTL , KC_LALT                , KC_LGUI , MT(MOD_LSFT, KC_SPC) , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB)   , MT(MOD_RSFT    , KC_SPC)  , KC_RGUI , TG(1) , TG(2)   , KC_LEFT , KC_DOWN , KC_RGHT) , // 13 keys
 	[1] = LAYOUT(
             KC_ESC  , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_CALC , KC_MYCM         , KC_TRNS , KC_TRNS  , NK_TOGG , QK_BOOT ,
             KC_TRNS , KC_TRNS , RGB_VAI , KC_TRNS    , KC_TRNS    , KC_TRNS , /*      , */ KC_MS_L         , KC_MS_D , KC_MS_U , KC_MS_R         , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS ,
