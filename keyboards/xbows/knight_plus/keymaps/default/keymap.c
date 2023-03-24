@@ -27,13 +27,15 @@ const uint16_t PROGMEM alfred_combo[] = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM lang_ja_combo[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM lang_en_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM lang_combo[] = {KC_D, KC_K, COMBO_END};
+const uint16_t PROGMEM alfred_browser_tab_combo[] = {KC_E, KC_I, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(esc_combo, KC_ESC),
     COMBO(alfred_combo,  LGUI(KC_J)),
     /* COMBO(layer1_combo,  TG(1)), */ // layer切り替え後、そのlayerのKCになってしまうためtoggleできない
     COMBO(lang_ja_combo, LCTL(LSFT(KC_J))),
     COMBO(lang_en_combo, LCTL(LSFT(KC_SCLN))),
-    COMBO(lang_combo,    LGUI(KC_SPC))
+    COMBO(lang_combo,    LGUI(KC_SPC)),
+    COMBO(alfred_browser_tab_combo,   RSFT(RGUI(KC_G)))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
