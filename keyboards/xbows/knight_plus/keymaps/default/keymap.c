@@ -75,35 +75,35 @@ combo_t key_combos[COMBO_COUNT] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT(
+	[0] = LAYOUT( // default layer
             KC_ESC  , LCTL(LSFT(LGUI(KC_4))) , KC_F2   , KC_GRV , KC_MINS         , KC_EQL            , KC_F6   ,KC_F7    , KC_LBRC , KC_RBRC  , KC_BSLS , KC_F11  , KC_F12     , KC_DEL        , KC_PSCR       , // 15 keys
             KC_GRV  , KC_1                   , KC_2    , KC_3   , KC_4            , KC_5          /*  , */      , KC_6    , KC_7     , KC_8    , KC_9    , KC_0    , KC_MINS    , KC_EQL        , KC_BSPC       , // 14 keys
             KC_TAB  , KC_Q                   , KC_W    , KC_E   , KC_R            , KC_T           /* , */      , KC_Y    , KC_U     , KC_I    , KC_O    , KC_P    , DELVE_NEXT , DELVE_STEPIN  , DELVE_STEPOUT , DELVE_CONTINUE      , // 15 keys
             KC_CAPS , KC_A                   , KC_S    , KC_D   , KC_F            , KC_G              , KC_BSPC , KC_H    , KC_J     , KC_K    , KC_L    , KC_SCLN , KC_QUOT    , KC_ENT        , TG(3)         , // 15 keys
             KC_LSFT , KC_Z                   , KC_X    , KC_C   , KC_V            , KC_B              , KC_ENT  , KC_N    , KC_M     , KC_COMM , KC_DOT  , KC_SLSH , KC_RSFT    , KC_UP         , // 14 keys
             KC_LCTL , KC_LALT                , KC_LGUI , MT(MOD_LSFT, KC_SPC) , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB)   , MT(MOD_RSFT    , KC_SPC)  , KC_RGUI , TG(1) , TG(2)       , KC_LEFT       , KC_DOWN       , KC_RGHT) , // 13 keys
-	[1] = LAYOUT(
+	[1] = LAYOUT( // layer for browser
             KC_ESC  , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_CALC , KC_MYCM         , KC_TRNS , KC_TRNS  , NK_TOGG , QK_BOOT ,
             KC_TRNS , KC_TRNS , RGB_VAI , KC_TRNS    , KC_TRNS    , KC_TRNS , /*      , */ KC_MS_L         , KC_MS_D , KC_MS_U , KC_MS_R         , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS ,
             RGB_TOG , RGB_MOD , RGB_VAD , KC_TRNS    , LGUI(KC_R) , KC_TRNS , /*      , */ KC_TRNS         , KC_DOWN , KC_UP   , KC_TRNS         , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS ,
             KC_TRNS , KC_TRNS , LGUI(KC_S) , LGUI(KC_W) , KC_TRNS    , KC_TRNS , KC_TRNS , LCTL(LSFT(KC_TAB)) , KC_WH_D , KC_WH_U , LCTL(KC_TAB) , LGUI(KC_W)  , KC_TRNS  , KC_TRNS , KC_TRNS ,
             KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_BTN1 , KC_BTN2 , KC_BTN3         , KC_BTN4 , KC_TRNS  , KC_UP ,
             KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_TRNS , KC_LEFT , KC_DOWN , KC_RGHT) ,
-	[2] = LAYOUT(
+	[2] = LAYOUT( // layer for window management
             KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO      , KC_NO , KC_NO               , KC_NO                     , KC_NO                      , KC_NO                , KC_NO , KC_NO  , KC_NO , KC_NO ,
             KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO  /*  , */    , KC_NO               , LCTL(LALT(KC_RIGHT))      , LCTL(LALT(KC_LEFT))        , KC_NO                , KC_NO , KC_NO  , KC_NO , KC_NO ,
             KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO   /* , */    , KC_NO               , LCTL(LALT(LSFT(KC_LEFT))) , LCTL(LALT(LSFT(KC_UP)))    , KC_NO                , KC_NO , KC_NO  , KC_NO , KC_NO , KC_NO ,
             KC_NO   , LCTL(LALT(KC_D))       , LCTL(LALT(KC_T))       , LALT(LCMD(KC_D)) , LALT(LCMD(KC_G)) , KC_NO      , KC_NO , LALT(LGUI(KC_LEFT)) , LALT(LGUI(KC_DOWN))       , LALT(LGUI(KC_UP))          , LALT(LGUI(KC_RIGHT)) , KC_NO , KC_NO  , KC_NO , KC_NO ,
             KC_LSFT , LCTL(LALT(LGUI(KC_D))) , LCTL(LALT(LGUI(KC_T))) , KC_NO            , KC_NO            , KC_NO      , KC_NO , KC_NO               , LCTL(LALT(LSFT(KC_DOWN))) , LCTL(LALT(LSFT(KC_RIGHT))) , KC_NO                , KC_NO , KC_NO  , KC_NO ,
             KC_NO   , KC_NO                  , KC_NO                  , KC_NO            , KC_NO            , KC_NO      , KC_NO , KC_NO               , KC_NO                     , KC_TRNS                    , KC_NO                , KC_NO , KC_NO) ,
-	[3] = LAYOUT(
+	[3] = LAYOUT( // layer for vim-like movement
             KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO      , KC_NO  , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   ,
             KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO  /*  , */     , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   ,
             KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO   /* , */     , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , KC_NO          ,
             KC_NO , KC_NO , KC_NO , LGUI(KC_BSPC) , KC_NO , KC_NO      , KC_NO  , KC_LEFT , KC_DOWN , KC_UP , KC_RIGHT , KC_NO , KC_NO  , KC_NO , KC_TRNS , // target rows
             KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO      , KC_ENT , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO ,
             KC_NO , KC_NO , KC_NO , KC_SPC        , KC_NO , KC_NO      , KC_SPC , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO) ,
-	[4] = LAYOUT(
+	[4] = LAYOUT( // layer for delve/debugger
             KC_NO , KC_NO      , KC_NO      , KC_NO      , KC_NO , KC_NO , KC_NO  , KC_NO    , KC_NO               , KC_NO                , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO ,
             KC_NO , LGUI(KC_1) , LGUI(KC_0) , LGUI(KC_2) , KC_NO , KC_NO , /*     , */ KC_NO , KC_NO               , KC_NO                , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO ,
             KC_NO , KC_NO      , KC_NO      , KC_E       , KC_NO , KC_NO , /*     , */ KC_NO , RGUI(RSFT(KC_LEFT)) , RGUI(RSFT(KC_RIGHT)) , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO , KC_TRNS , // target rows
