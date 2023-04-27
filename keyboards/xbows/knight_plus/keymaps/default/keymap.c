@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_LSFT , KC_Z                   , KC_X    , KC_C   , KC_V            , KC_B              , KC_ENT  , KC_N    , KC_M     , KC_COMM , KC_DOT  , KC_SLSH , KC_RSFT    , KC_UP         , // 14 keys
             KC_LCTL , KC_LALT                , KC_LGUI , MT(MOD_LSFT, KC_SPC) , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB)   , MT(MOD_RSFT    , KC_SPC)  , KC_RGUI , TG(1) , TG(2)       , KC_LEFT       , KC_DOWN       , KC_RGHT) , // 13 keys
 	[1] = LAYOUT( // layer for browser
-            KC_ESC  , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , KC_TRNS , KC_CALC , KC_MYCM         , KC_TRNS , KC_TRNS  , NK_TOGG , QK_BOOT ,
+            KC_ESC  , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS            , LGUI(KC_MINS) , LGUI(KC_EQL) , KC_MYCM         , KC_TRNS , KC_TRNS  , NK_TOGG , QK_BOOT ,
             KC_TRNS , KC_TRNS , RGB_VAI , KC_TRNS    , KC_TRNS    , KC_TRNS , /*      , */ KC_MS_L         , KC_MS_D , KC_MS_U , KC_MS_R         , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS ,
             RGB_TOG , RGB_MOD , RGB_VAD , KC_TRNS    , LGUI(KC_R) , KC_TRNS , /*      , */ KC_TRNS         , KC_DOWN , KC_UP   , KC_TRNS         , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS ,
             KC_TRNS , KC_TRNS , LGUI(KC_S) , LGUI(KC_W) , KC_TRNS    , KC_TRNS , KC_TRNS , LCTL(LSFT(KC_TAB)) , KC_WH_D , KC_WH_U , LCTL(KC_TAB) , LGUI(KC_W)  , KC_TRNS  , KC_TRNS , KC_TRNS ,
