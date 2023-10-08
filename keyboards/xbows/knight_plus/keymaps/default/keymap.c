@@ -111,12 +111,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO   , KC_NO                  , KC_NO                  , KC_NO                  , KC_NO                     , KC_NO                    , KC_NO   , KC_NO                     , KC_NO                     , KC_TRNS                    , KC_NO                      , KC_NO , KC_NO) , // 13
     // layer for vim-like movement
     [3] = LAYOUT(
-        KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO    , KC_NO  , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , // 15
-        KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO /* , */     , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , // 14
-        KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO /* , */     , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , KC_NO             , // 15
-        KC_NO , KC_NO , KC_NO , LGUI(KC_BSPC) , KC_NO , KC_NO    , KC_NO  , KC_LEFT , KC_DOWN , KC_UP , KC_RIGHT , KC_NO , KC_NO  , KC_NO , KC_TRNS , // 15.target rows
-        KC_NO , KC_NO , KC_NO , KC_NO         , KC_NO , KC_NO    , KC_ENT , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , // 14
-        KC_NO , KC_NO , KC_NO , KC_SPC        , KC_NO , KC_NO    , KC_SPC , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO) , // 13
+        KC_NO , KC_NO   , KC_NO   , KC_NO         , KC_NO , KC_NO    , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , // 15
+        KC_NO , KC_NO   , KC_NO   , KC_NO         , KC_NO , KC_NO /* , */      , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , // 14
+        KC_NO , KC_NO   , KC_NO   , KC_NO         , KC_NO , KC_NO /* , */      , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO   , KC_NO             , // 15
+        KC_NO , KC_NO   , KC_NO   , LGUI(KC_BSPC) , KC_NO , KC_NO    , KC_NO   , KC_LEFT , KC_DOWN , KC_UP , KC_RIGHT , KC_NO , KC_NO  , KC_NO , KC_TRNS , // 15.target rows
+        KC_NO , KC_TRNS , KC_NO   , KC_NO         , KC_NO , KC_NO    , KC_ENT  , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO , // 14
+        KC_NO , KC_NO   , KC_TRNS , KC_TRNS       , KC_NO , KC_NO    , KC_TRNS , KC_TRNS , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO) , // 13
     // layer for delve/debugger
     [4] = LAYOUT(
         KC_NO , KC_NO      , KC_NO      , KC_NO      , KC_NO , KC_NO , KC_NO  , KC_NO    , KC_NO               , KC_NO                , KC_NO    , KC_NO , KC_NO  , KC_NO , KC_NO , // 15
