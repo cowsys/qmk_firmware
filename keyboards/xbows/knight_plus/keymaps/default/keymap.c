@@ -140,5 +140,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */  KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO , KC_NO , // 15
         KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO , // 15
         KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO   , KC_NO   , // 14
-        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO , KC_NO , KC_NO , KC_NO , ) // 13
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO , KC_NO , KC_NO , KC_NO , ), // 13
+    // layer for only hjkl vim-like movement
+    [7] = LAYOUT(
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO   , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */  KC_NO , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO   , KC_NO , // 14
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */  KC_NO , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO   , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_LEFT   , KC_DOWN , KC_UP , KC_RIGHT , KC_NO , KC_NO   , KC_TRNS , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO   , // 14
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO     , KC_NO   , KC_NO , KC_NO    , KC_NO , ) // 13
 };
