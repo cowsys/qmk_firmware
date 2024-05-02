@@ -234,10 +234,6 @@
         rgb_matrix_set_color(78, 0xFF, 0xFF, 0xFF);
     }
     else if (layer_state_is(8)) {
-        rgb_matrix_set_color(28, 0xFF, 0x00, 0x00);
-        rgb_matrix_set_color(81, 0xFF, 0x00, 0x00);
-    }
-    else if (layer_state_is(9)) {
         rgb_matrix_set_color(45, 0x00, 0x00, 0xFF);
         rgb_matrix_set_color(55, 0x00, 0x00, 0xFF);
 
