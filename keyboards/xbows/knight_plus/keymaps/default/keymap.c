@@ -13,6 +13,8 @@ enum custom_keycodes {
     DELVE_STEPOUT,
     DELVE_CONTINUE,
     DELVE_EXIT,
+    DELVE_UP_FRAME,
+    DELVE_DOWN_FRAME,
     DOUBLE_CLICK,
     SAVE_IMAGE,
     SAVE_IMAGE2,
@@ -45,6 +47,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 SEND_STRING("exit\n");
                 SEND_STRING(SS_DELAY(400) SS_TAP(X_ENT));
+            }
+            break;
+        case DELVE_UP_FRAME:
+            if (record->event.pressed) {
+                SEND_STRING("up\n");
+            }
+            break;
+        case DELVE_DOWN_FRAME:
+            if (record->event.pressed) {
+                SEND_STRING("down\n");
             }
             break;
             /* case KC_1: */
@@ -149,12 +161,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO  , KC_NO      , KC_TRNS    , KC_TRNS          , KC_BTN1 , KC_BTN2  , KC_TRNS , KC_TRNS , KC_NO   , KC_NO , KC_NO      , KC_NO , KC_NO) , // 13
     // layer for delve/debugger
     [4] = LAYOUT(
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , KC_TRNS        , KC_TRNS      , // 15
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , KC_TRNS        , KC_TRNS      , // 14
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , DELVE_NEXT     , DELVE_STEPIN , DELVE_STEPOUT , // 15
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , DELVE_CONTINUE , DELVE_EXIT   , // 15
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS  , KC_TRNS        , // 14
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS) , // 13
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS          , KC_TRNS  , KC_TRNS        , KC_TRNS      , // 15
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS          , KC_TRNS  , KC_TRNS        , KC_TRNS      , // 14
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS          , KC_TRNS  , DELVE_NEXT     , DELVE_STEPIN , DELVE_STEPOUT , // 15
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS          , KC_TRNS  , DELVE_CONTINUE , DELVE_EXIT   , // 15
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS          , KC_TRNS  , DELVE_UP_FRAME , // 14
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS , KC_TRNS , KC_TRNS , DELVE_DOWN_FRAME , KC_TRNS) , // 13
     // layer for window movement(by hammerspoon) & keyboard cursors
     [5] = LAYOUT(
         KC_NO   , KC_NO , KC_NO                  , KC_NO                  , LCTL(LALT(LCMD(KC_MINS))) , LCTL(LALT(LCMD(KC_EQL))) , KC_NO , KC_NO                     , KC_NO                  , KC_NO                  , KC_NO                  , KC_NO   , KC_NO     , KC_NO , KC_NO , // 15
