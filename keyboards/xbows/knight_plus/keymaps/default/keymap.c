@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB        , KC_Q       , KC_W    , LT(2        , KC_E)   , KC_R            , KC_T /*         , */          , KC_Y    , KC_U    , LT(2,KC_I)    , KC_O   , KC_P          , KC_BSLS   , C(A(G(KC_A))) , C(A(G(KC_E))) , C(A(G(KC_0))) , // 15
         TG(1)         , LT(8,KC_A) , KC_S    , LT(1,KC_D)  , KC_F            , KC_G        , KC_BSPC , KC_H    , KC_J    , KC_K   , KC_L          , LT(8      , KC_SCLN)      , MT(MOD_RGUI   , KC_QUOT)      , C(A(G(KC_X))) , TG(3) , // 15
         C(A(G(KC_T))) , KC_Z       , KC_X    , LT(5        , KC_C)   , KC_V            , KC_B            , KC_ENT      , KC_N    , KC_M    , KC_COMM , KC_DOT , KC_SLSH       , TD(TD_SWITCH_LANG) , KC_UP         , // 14
-        KC_LCTL       , KC_LALT    , KC_LGUI , MT(MOD_LSFT , KC_SPC) , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB) , MT(MOD_RSFT , KC_SPC) , KC_RGUI , KC_RALT , KC_NO  , KC_LEFT       , KC_DOWN   , KC_RGHT)      , // 13
+        KC_LCTL       , KC_LALT    , KC_LGUI , MT(MOD_LSFT , KC_SPC) , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB) , MT(MOD_RSFT , KC_SPC) , KC_RGUI , KC_RALT , TG(9)  , KC_LEFT       , KC_DOWN   , KC_RGHT)      , // 13
     // layer for browser
     [1] = LAYOUT(
         KC_TRNS , KC_TRNS     , KC_TRNS , KC_TRNS   , G(KC_MINS) , G(KC_EQL)    , KC_TRNS , C(A(G(KC_1))) , C(A(G(KC_4))) , C(A(G(KC_6))) , KC_MYCM   , KC_TRNS , G(KC_BSPC)        , NK_TOGG         , QK_BOOT , // 15
@@ -218,5 +218,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS       , S(KC_1)    , S(KC_2)    , S(KC_LBRC)    , S(KC_RBRC) , S(KC_BSLS) , /*      , */ KC_UP      , KC_7    , KC_8    , KC_9    , S(KC_8)   , KC_F12         , KC_TRNS , KC_TRNS , KC_TRNS , // 15
         KC_TRNS       , S(KC_3)    , S(KC_4)    , S(KC_9)       , S(KC_0)    , KC_GRV     , KC_BTN1 , KC_DOWN       , KC_4    , KC_5    , KC_6    , S(KC_EQL) , KC_TRNS        , KC_TRNS , KC_TRNS , // 15
         C(A(G(KC_R))) , S(KC_5)    , S(KC_6)    , KC_LBRC       , KC_RBRC    , S(KC_GRV)  , KC_WH_D , S(KC_7)       , KC_1    , KC_2    , KC_3    , KC_MINS   , KC_TRNS        , KC_TRNS , // 14
-        KC_TRNS       , KC_EQL     , KC_TRNS    , KC_TRNS       , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_0          , KC_EQL  , KC_TRNS , KC_TRNS , KC_TRNS   , KC_TRNS) // 13
+        KC_TRNS       , KC_EQL     , KC_TRNS    , KC_TRNS       , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_0          , KC_EQL  , KC_TRNS , KC_TRNS , KC_TRNS   , KC_TRNS), // 13
+    // layer for Function keys and vim movement without scrolling cursor
+    [9] = LAYOUT(
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */ KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 14
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */ KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , // 14
+        KC_NO , KC_NO , KC_NO , KC_H , C(KC_E) , C(KC_Y) , KC_L , KC_NO    , KC_NO , KC_TRNS , KC_NO , KC_NO , KC_NO) // 13
 };
