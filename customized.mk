@@ -14,8 +14,8 @@ edit-rules:
 edit-config:
 	nvim -c 'call clang_format#disable_auto_format()' "./keyboards/xbows/knight_plus/config.h"
 
-.PHONY: compile-xbows
-compile-xbows:
+.PHONY: build-xbows
+build-xbows:
 	qmk compile -kb xbows/knight_plus -km default
 
 .PHONY: flash-xbows
