@@ -153,8 +153,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EQL        , KC_1       , KC_2    , KC_3        , KC_4    , KC_5 /*         , */              , KC_6        , KC_7    , KC_8    , KC_9    , KC_0   , KC_MINS       , KC_NO     , TG(4)         , // 14
         KC_TAB        , KC_Q       , KC_W    , LT(2, KC_E) , KC_R    , KC_T /*         , */          , KC_Y    , KC_U    , LT(2,KC_I)    , KC_O   , KC_P          , KC_BSLS   , C(A(G(KC_A))) , C(A(G(KC_E))) , C(A(G(KC_0))) , // 15
         TG(1)         , LT(8,KC_A) , KC_S    , LT(1, KC_D) , KC_F    , KC_G        , KC_BSPC , KC_H    , KC_J    , KC_K   , KC_L          , LT(8      , KC_SCLN)      , MT(MOD_RGUI   , KC_QUOT)      , C(A(G(KC_X))) , TG(3) , // 15
-        C(A(G(KC_T))) , KC_Z       , KC_X    , LT(5, KC_C) , KC_V    , KC_B            , KC_ENT      , KC_N    , KC_M    , KC_COMM , KC_DOT , KC_SLSH       , TD(TD_SWITCH_LANG) , KC_UP         , // 14
-        KC_LCTL       , KC_LALT    , KC_LGUI , MT(MOD_LSFT , KC_SPC) , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB) , MT(MOD_RSFT , KC_SPC) , KC_RGUI , KC_RALT , TG(9)  , KC_LEFT       , KC_DOWN   , KC_RGHT)      , // 13
+        C(A(G(KC_T))) , KC_Z       , KC_X    , LT(5, KC_C) , LT(9,KC_V) , KC_B            , KC_ENT      , KC_N    , LT(9,KC_M)    , KC_COMM , KC_DOT , KC_SLSH       , TD(TD_SWITCH_LANG) , KC_UP         , // 14
+        KC_LCTL       , KC_LALT    , KC_LGUI , MT(MOD_LSFT , KC_SPC)     , TD(TD_LCTL_TAB) , TD(TD_RCTL_TAB) , MT(MOD_RSFT , KC_SPC) , KC_RGUI , KC_RALT , TG(9)  , KC_LEFT       , KC_DOWN   , KC_RGHT)      , // 13
     // layer for browser
     [1] = LAYOUT(
         KC_TRNS , KC_TRNS     , KC_TRNS , KC_TRNS   , G(KC_MINS) , G(KC_EQL)    , KC_TRNS , C(A(G(KC_1))) , C(A(G(KC_4))) , C(A(G(KC_6))) , KC_MYCM   , KC_TRNS , G(KC_BSPC)        , NK_TOGG         , QK_BOOT , // 15
