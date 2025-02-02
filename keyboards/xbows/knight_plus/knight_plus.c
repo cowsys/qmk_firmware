@@ -247,10 +247,14 @@
         rgb_matrix_set_color(78, 0x00, 0x00, 0xFF);
     }
     else if (layer_state_is(9)) {
+        rgb_matrix_set_color(74, 0x00, 0x00, 0xFF);
+        rgb_matrix_set_color(75, 0x00, 0x00, 0xFF);
         rgb_matrix_set_color(76, 0x00, 0x00, 0xFF);
         rgb_matrix_set_color(77, 0x00, 0x00, 0xFF);
         rgb_matrix_set_color(78, 0x00, 0x00, 0xFF);
         rgb_matrix_set_color(79, 0x00, 0x00, 0xFF);
+        rgb_matrix_set_color(80, 0x00, 0x00, 0xFF);
+        rgb_matrix_set_color(81, 0x00, 0x00, 0xFF);
         rgb_matrix_set_color(82, 0x00, 0x00, 0xFF);
     }
 }
