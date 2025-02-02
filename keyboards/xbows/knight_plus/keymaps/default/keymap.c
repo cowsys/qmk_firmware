@@ -221,10 +221,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS       , KC_EQL     , KC_TRNS    , KC_TRNS       , KC_TRNS    , KC_TRNS    , KC_TRNS , KC_0          , KC_EQL  , KC_TRNS , KC_TRNS , KC_TRNS   , KC_TRNS), // 13
     // layer for Function keys and vim movement without scrolling cursor
     [9] = LAYOUT(
-        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 15
-        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */ KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 14
-        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , /*    , */ KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , KC_NO , // 15
-        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 15
-        KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , // 14
-        KC_NO , KC_NO , KC_NO , KC_H , C(KC_E) , C(KC_Y) , KC_L , KC_NO    , KC_NO , KC_TRNS , KC_NO , KC_NO , KC_NO) // 13
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , /*      , */ KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 14
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , /*      , */ KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_J  , KC_K    , KC_NO , KC_NO , KC_NO        , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_NO , KC_NO   , KC_NO , KC_NO , KC_NO        , KC_NO , // 14
+        KC_NO , KC_H  , C(KC_E) , C(KC_E) , C(KC_E) , C(KC_E) , C(KC_E) , C(KC_E)  , KC_L  , KC_TRNS , KC_NO , KC_NO , KC_NO) // 13
 };
