@@ -19,5 +19,5 @@ build-xbows:
 	qmk compile -kb xbows/knight_plus -km default
 
 .PHONY: flash-xbows
-flash-xbows:
+flash-xbows: build-xbows
 	qmk flash -kb xbows/knight_plus -km default
