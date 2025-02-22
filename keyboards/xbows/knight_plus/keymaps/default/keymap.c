@@ -189,12 +189,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS        , KC_TRNS      , DELVE_RESTART_TEST , DELVE_DOWN_FRAME , DELVE_RESTART_DEBUG) , // 13
     // layer for delve/debugger 2
     [5] = LAYOUT(
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS        , KC_TRNS      , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , // 15
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS        , KC_TRNS      , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , // 14
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS        , KC_TRNS      , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS , // 15
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , DELVE_NEXT     , DELVE_STEPIN , DELVE_STEPOUT , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , // 15
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , DELVE_CONTINUE , DELVE_EXIT   , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , // 14
-        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS        , KC_TRNS      , KC_TRNS       , KC_TRNS , KC_TRNS) , // 13
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS          , KC_TRNS        , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , // 15
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , KC_TRNS          , KC_TRNS        , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , // 14
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , /*      , */ KC_TRNS , DELVE_DOWN_FRAME , DELVE_UP_FRAME , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , KC_TRNS , // 15
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , DELVE_NEXT       , DELVE_STEPIN   , DELVE_STEPOUT , KC_TRNS , KC_TRNS  , KC_TRNS , KC_TRNS , // 15
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , DELVE_CONTINUE   , DELVE_EXIT     , KC_TRNS       , KC_TRNS , KC_TRNS  , KC_TRNS , // 14
+        KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS          , KC_TRNS        , KC_TRNS       , KC_TRNS , KC_TRNS) , // 13
     // layer for cleaning keyboard
     [6] = LAYOUT(
         KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_TRNS , // 15
