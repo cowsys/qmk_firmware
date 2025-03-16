@@ -231,12 +231,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS , KC_TRNS    , KC_TRNS          , KC_TRNS        , KC_TRNS       , KC_TRNS , KC_TRNS) , // 13
     // layer for left-handed vim-like movement
     [6] = LAYOUT(
-        KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , // 15
-        KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO   , KC_NO   , /*    , */ KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , // 14
-        KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO   , KC_NO   , /*    , */ KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , KC_NO , // 15
-        KC_NO , KC_NO , KC_LEFT , KC_UP , KC_DOWN , KC_RGHT , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , // 15
-        KC_NO , KC_NO , KC_NO   , KC_NO , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , // 14
-        KC_NO , KC_NO , KC_NO   , KC_NO , KC_TRNS , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO) , // 13
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_MS_L , KC_MS_U , KC_MS_D , KC_MS_R , /*    , */ KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , // 14
+        KC_NO , KC_NO , KC_WH_L , KC_WH_U , KC_WH_D , KC_WH_R , /*    , */ KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_LEFT , KC_UP   , KC_DOWN , KC_RGHT , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , KC_NO , // 15
+        KC_NO , KC_NO , KC_NO   , KC_WH_U , KC_WH_D , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO  , KC_NO , // 14
+        KC_NO , KC_NO , KC_NO   , KC_NO   , KC_TRNS , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO) , // 13
     // layer for only hjkl vim-like movement
     [7] = LAYOUT(
         KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO , KC_NO    , KC_NO   , KC_NO , KC_NO    , KC_NO , KC_NO  , KC_NO   , KC_NO , // 15
