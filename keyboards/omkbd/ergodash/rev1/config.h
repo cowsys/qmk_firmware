@@ -29,3 +29,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //3: about 39kbps
 //4: about 26kbps
 //5: about 20kbps
+
+// additional configs
+#define SPLIT_USB_DETECT
+#define RGBLIGHT_LAYERS
+#define RGBLIGHT_MAX_LAYERS 8
+#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_LED_STATE_ENABLE
+
+#define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY

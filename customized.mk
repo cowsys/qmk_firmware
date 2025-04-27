@@ -21,3 +21,11 @@ build-xbows:
 .PHONY: flash-xbows
 flash-xbows: build-xbows
 	qmk flash -kb xbows/knight_plus -km default
+
+.PHONY: build-ed
+build-ed:
+	qmk compile -kb omkbd/ergodash/rev1 -km default
+
+.PHONY: flash-ed
+flash-ed:
+	qmk flash -kb omkbd/ergodash/rev1 -km default

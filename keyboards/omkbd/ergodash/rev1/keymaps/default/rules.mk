@@ -1,3 +1,9 @@
 BACKLIGHT_ENABLE = no
-RGBLIGHT_ENABLE = no
+RGBLIGHT_ENABLE = yes
 AUDIO_ENABLE = no
+
+# additional configs
+TAP_DANCE_ENABLE = yes
+COMBO_ENABLE = yes
+MOUSEKEY_ENABLE = yes
+LTO_ENABLE = yes
