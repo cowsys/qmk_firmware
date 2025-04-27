@@ -193,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT(
         KC_TRNS , KC_TRNS     , KC_TRNS , KC_TRNS   , G(KC_MINS) , G(KC_EQL)    , KC_TRNS , C(A(G(KC_1))) , C(A(G(KC_4))) , C(A(G(KC_6))) , KC_MYCM   , KC_TRNS , G(KC_BSPC)        , NK_TOGG         , QK_BOOT , // 15
         KC_TRNS , G(KC_0)     , G(KC_1) , G(KC_2)   , G(KC_3)    , KC_TRNS      , /*      , */ KC_MS_L    , KC_MS_D       , KC_MS_U       , KC_MS_R   , KC_TRNS , KC_KB_VOLUME_DOWN , KC_KB_VOLUME_UP , KC_NO   , // 14
-        KC_TRNS , SAVE_IMAGE2 , KC_BTN5 , KC_BTN4   , G(KC_R)    , G(KC_T)      , /*      , */ KC_LEFT    , KC_DOWN       , LT(2          , KC_UP)    , KC_RGHT , KC_TRNS           , KC_TRNS         , KC_TRNS , KC_TRNS , KC_TRNS , // 15
+        KC_TRNS , SAVE_IMAGE2 , KC_BTN5 , KC_BTN4   , G(KC_R)    , G(KC_T)      , /*      , */ KC_LEFT    , KC_DOWN       , LT(2, KC_UP)  , KC_RGHT   , KC_TRNS , KC_TRNS           , KC_TRNS , KC_TRNS , KC_TRNS , // 15
         KC_TRNS , G(KC_A)     , G(KC_S) , G(KC_W)   , KC_BTN1    , KC_BTN3      , KC_TRNS , C(S(KC_TAB))  , KC_WH_D       , KC_WH_U       , C(KC_TAB) , G(KC_W) , KC_BTN1           , KC_TRNS         , KC_NO   , // 15
         KC_TRNS , G(KC_Z)     , KC_TRNS , G(KC_C)   , G(KC_V)    , DOUBLE_CLICK , KC_TRNS , G(KC_V)       , KC_BTN1       , KC_BTN2       , KC_BTN3   , G(KC_F) , KC_TRNS           , KC_UP           , // 14
         KC_TRNS , KC_TRNS     , KC_TRNS , S(KC_SPC) , KC_BTN1    , KC_BTN2      , KC_SPC  , KC_TRNS       , KC_TRNS       , S(G(KC_T))    , KC_LEFT   , KC_DOWN , KC_RGHT)          , // 13
