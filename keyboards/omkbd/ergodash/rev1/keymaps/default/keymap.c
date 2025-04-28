@@ -86,10 +86,10 @@ const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 1,  HSV_OFF},
     {2, 1,  HSV_OFF},
     {3, 1,  HSV_OFF},
-    {4, 1,  HSV_GREEN},
-    {5, 1,  HSV_GREEN},
-    {6, 1,  HSV_GREEN},
-    {7, 1,  HSV_GREEN},
+    {4, 1,  HSV_YELLOW},
+    {5, 1,  HSV_YELLOW},
+    {6, 1,  HSV_YELLOW},
+    {7, 1,  HSV_YELLOW},
     {8, 1,  HSV_OFF},
     {9, 1,  HSV_OFF},
     {10, 1, HSV_OFF},
@@ -99,10 +99,10 @@ const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {13, 1, HSV_OFF},
     {14, 1, HSV_OFF},
     {15, 1, HSV_OFF},
-    {16, 1, HSV_GREEN},
-    {17, 1, HSV_GREEN},
-    {18, 1, HSV_GREEN},
-    {19, 1, HSV_GREEN},
+    {16, 1, HSV_YELLOW},
+    {17, 1, HSV_YELLOW},
+    {18, 1, HSV_YELLOW},
+    {19, 1, HSV_YELLOW},
     {20, 1, HSV_OFF},
     {21, 1, HSV_OFF},
     {22, 1, HSV_OFF},
@@ -135,6 +135,115 @@ const rgblight_segment_t PROGMEM my_layer4_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {22, 1, HSV_OFF},
     {23, 1, HSV_OFF}
 );
+const rgblight_segment_t PROGMEM my_layer5_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1,  HSV_OFF},
+    {1, 1,  HSV_OFF},
+    {2, 1,  HSV_OFF},
+    {3, 1,  HSV_OFF},
+    {4, 1,  HSV_ORANGE},
+    {5, 1,  HSV_ORANGE},
+    {6, 1,  HSV_ORANGE},
+    {7, 1,  HSV_ORANGE},
+    {8, 1,  HSV_OFF},
+    {9, 1,  HSV_OFF},
+    {10, 1, HSV_OFF},
+    {11, 1, HSV_OFF},
+    //
+    {12, 1, HSV_OFF},
+    {13, 1, HSV_OFF},
+    {14, 1, HSV_OFF},
+    {15, 1, HSV_OFF},
+    {16, 1, HSV_ORANGE},
+    {17, 1, HSV_ORANGE},
+    {18, 1, HSV_ORANGE},
+    {19, 1, HSV_ORANGE},
+    {20, 1, HSV_OFF},
+    {21, 1, HSV_OFF},
+    {22, 1, HSV_OFF},
+    {23, 1, HSV_OFF}
+);
+
+const rgblight_segment_t PROGMEM my_layer6_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1,  HSV_OFF},
+    {1, 1,  HSV_OFF},
+    {2, 1,  HSV_OFF},
+    {3, 1,  HSV_OFF},
+    {4, 1,  HSV_BLUE},
+    {5, 1,  HSV_BLUE},
+    {6, 1,  HSV_BLUE},
+    {7, 1,  HSV_BLUE},
+    {8, 1,  HSV_OFF},
+    {9, 1,  HSV_OFF},
+    {10, 1, HSV_OFF},
+    {11, 1, HSV_OFF},
+    //
+    {12, 1, HSV_OFF},
+    {13, 1, HSV_OFF},
+    {14, 1, HSV_OFF},
+    {15, 1, HSV_OFF},
+    {16, 1, HSV_BLUE},
+    {17, 1, HSV_BLUE},
+    {18, 1, HSV_BLUE},
+    {19, 1, HSV_BLUE},
+    {20, 1, HSV_OFF},
+    {21, 1, HSV_OFF},
+    {22, 1, HSV_OFF},
+    {23, 1, HSV_OFF}
+);
+const rgblight_segment_t PROGMEM my_layer7_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1,  HSV_OFF},
+    {1, 1,  HSV_OFF},
+    {2, 1,  HSV_OFF},
+    {3, 1,  HSV_OFF},
+    {4, 1,  HSV_SPRINGGREEN},
+    {5, 1,  HSV_SPRINGGREEN},
+    {6, 1,  HSV_SPRINGGREEN},
+    {7, 1,  HSV_SPRINGGREEN},
+    {8, 1,  HSV_OFF},
+    {9, 1,  HSV_OFF},
+    {10, 1, HSV_OFF},
+    {11, 1, HSV_OFF},
+    //
+    {12, 1, HSV_OFF},
+    {13, 1, HSV_OFF},
+    {14, 1, HSV_OFF},
+    {15, 1, HSV_OFF},
+    {16, 1, HSV_SPRINGGREEN},
+    {17, 1, HSV_SPRINGGREEN},
+    {18, 1, HSV_SPRINGGREEN},
+    {19, 1, HSV_SPRINGGREEN},
+    {20, 1, HSV_OFF},
+    {21, 1, HSV_OFF},
+    {22, 1, HSV_OFF},
+    {23, 1, HSV_OFF}
+);
+const rgblight_segment_t PROGMEM my_layer8_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1,  HSV_OFF},
+    {1, 1,  HSV_OFF},
+    {2, 1,  HSV_OFF},
+    {3, 1,  HSV_OFF},
+    {4, 1,  HSV_TEAL},
+    {5, 1,  HSV_TEAL},
+    {6, 1,  HSV_TEAL},
+    {7, 1,  HSV_TEAL},
+    {8, 1,  HSV_OFF},
+    {9, 1,  HSV_OFF},
+    {10, 1, HSV_OFF},
+    {11, 1, HSV_OFF},
+    //
+    {12, 1, HSV_OFF},
+    {13, 1, HSV_OFF},
+    {14, 1, HSV_OFF},
+    {15, 1, HSV_OFF},
+    {16, 1, HSV_TEAL},
+    {17, 1, HSV_TEAL},
+    {18, 1, HSV_TEAL},
+    {19, 1, HSV_TEAL},
+    {20, 1, HSV_OFF},
+    {21, 1, HSV_OFF},
+    {22, 1, HSV_OFF},
+    {23, 1, HSV_OFF}
+);
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -142,7 +251,11 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_layer1_layer,
     my_layer2_layer,
     my_layer3_layer,
-    my_layer4_layer
+    my_layer4_layer,
+    my_layer5_layer,
+    my_layer6_layer,
+    my_layer7_layer,
+    my_layer8_layer
 );
 
 void keyboard_post_init_user(void) {
@@ -183,8 +296,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(1, layer_state_cmp(state, _BROWSER));
     rgblight_set_layer_state(2, layer_state_cmp(state, _WINDOW));
     rgblight_set_layer_state(3, layer_state_cmp(state, _DELVE));
-    rgblight_set_layer_state(3, layer_state_cmp(state, _ERGODOX));
-    rgblight_set_layer_state(4, layer_state_cmp(state, _LEFT));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _ERGODOX));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _LEFT));
+    rgblight_set_layer_state(6, layer_state_cmp(state, _VIMSCROLL));
+    rgblight_set_layer_state(7, layer_state_cmp(state, _VIM));
+    rgblight_set_layer_state(8, layer_state_cmp(state, _LVIM));
+    rgblight_set_layer_state(8, layer_state_cmp(state, _VIMX));
     // rgblight_set_layer_state(3, layer_state_cmp(state, _ADJUST));
     return state;
 }
