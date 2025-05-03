@@ -244,6 +244,33 @@ const rgblight_segment_t PROGMEM my_layer8_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {22, 1, HSV_OFF},
     {23, 1, HSV_OFF}
 );
+const rgblight_segment_t PROGMEM my_layer9_layer[] = RGBLIGHT_LAYER_SEGMENTS(
+    {0, 1,  HSV_OFF},
+    {1, 1,  HSV_OFF},
+    {2, 1,  HSV_OFF},
+    {3, 1,  HSV_OFF},
+    {4, 1,  HSV_AZURE},
+    {5, 1,  HSV_AZURE},
+    {6, 1,  HSV_AZURE},
+    {7, 1,  HSV_AZURE},
+    {8, 1,  HSV_OFF},
+    {9, 1,  HSV_OFF},
+    {10, 1, HSV_OFF},
+    {11, 1, HSV_OFF},
+    //
+    {12, 1, HSV_OFF},
+    {13, 1, HSV_OFF},
+    {14, 1, HSV_OFF},
+    {15, 1, HSV_OFF},
+    {16, 1, HSV_AZURE},
+    {17, 1, HSV_AZURE},
+    {18, 1, HSV_AZURE},
+    {19, 1, HSV_AZURE},
+    {20, 1, HSV_OFF},
+    {21, 1, HSV_OFF},
+    {22, 1, HSV_OFF},
+    {23, 1, HSV_OFF}
+);
 
 // Now define the array of layers. Later layers take precedence
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -255,7 +282,8 @@ const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_layer5_layer,
     my_layer6_layer,
     my_layer7_layer,
-    my_layer8_layer
+    my_layer8_layer,
+    my_layer9_layer
 );
 
 void keyboard_post_init_user(void) {
@@ -270,15 +298,14 @@ enum layer_names {
     /* _RAISE, */
     /* _ADJUST, */
     _BASE,
-    _BROWSER,
-    _WINDOW,
+    _BRWSR,
+    _WNDW,
     _VIM,
     _LEFT,
-    _DELVE,
-    _LVIM,
-    _VIMX,
-    _ERGODOX,
-    _VIMSCROLL
+    _DLV,
+    _SBLNUM,
+    _VIMSCRL,
+    _CURSOR
 };
 
 // https://docs.qmk.fm/feature_layers#functions
@@ -293,15 +320,14 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(1, layer_state_cmp(state, _BROWSER));
-    rgblight_set_layer_state(2, layer_state_cmp(state, _WINDOW));
-    rgblight_set_layer_state(3, layer_state_cmp(state, _DELVE));
-    rgblight_set_layer_state(4, layer_state_cmp(state, _ERGODOX));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _BRWSR));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _WNDW));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _DLV));
+    rgblight_set_layer_state(4, layer_state_cmp(state, _SBLNUM));
     rgblight_set_layer_state(5, layer_state_cmp(state, _LEFT));
-    rgblight_set_layer_state(6, layer_state_cmp(state, _VIMSCROLL));
+    rgblight_set_layer_state(6, layer_state_cmp(state, _VIMSCRL));
     rgblight_set_layer_state(7, layer_state_cmp(state, _VIM));
-    rgblight_set_layer_state(8, layer_state_cmp(state, _LVIM));
-    rgblight_set_layer_state(8, layer_state_cmp(state, _VIMX));
+    rgblight_set_layer_state(9, layer_state_cmp(state, _CURSOR));
     // rgblight_set_layer_state(3, layer_state_cmp(state, _ADJUST));
     return state;
 }
@@ -321,6 +347,7 @@ enum custom_keycodes {
   VIMX,
   ERGODOX,
   VIMSCROLL, // 9
+  CURSOR,
   DELVE_NEXT,
   DELVE_STEPIN,
   DELVE_STEPOUT,
@@ -440,16 +467,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void dance_mouse_layer(tap_dance_state_t *state, void *user_data) {
     // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_layers.md
-    if (state->count == _BROWSER){
-        layer_invert(_BROWSER);
+    if (state->count == _BRWSR){
+        layer_invert(_BRWSR);
     } else {
         layer_invert(_LEFT);
     }
 }
 
 void dance_layers_9and3(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1){
-        layer_invert(_VIMSCROLL);
+    if (state->count == _BRWSR){
+        layer_invert(_VIMSCRL);
     } else {
         layer_invert(_VIM);
     }
@@ -458,38 +485,34 @@ void dance_layers_9and3(tap_dance_state_t *state, void *user_data) {
 // Tap Dance declarations
 enum {
     // for tab
-    TD_LCTL_TAB,
-    TD_RCTL_TAB,
+    TD_CTL_TAB,
     TD_MPLY_MNXT,
     TD_MAC_F8,
-    TD_SWITCH_LANG,
-    TD_MOUSE_LAYER,
-    TD_LAYER_9and3,
+    TD_TGLIPT,
+    TD_MS_LYR,
+    TD_LYR_93,
+    TD_LCTL_LAYER_CURSOR,
 };
 
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_LCTL_TAB]    = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_TAB),
-    [TD_RCTL_TAB]    = ACTION_TAP_DANCE_DOUBLE(KC_RCTL, KC_TAB),
-    [TD_MPLY_MNXT]   = ACTION_TAP_DANCE_DOUBLE(KC_MPLY, KC_MNXT),
-    [TD_MAC_F8]      = ACTION_TAP_DANCE_DOUBLE(KC_F8, KC_MPLY),
-    [TD_SWITCH_LANG] = ACTION_TAP_DANCE_DOUBLE(G(KC_8), G(KC_7)),
-    [TD_MOUSE_LAYER] = ACTION_TAP_DANCE_FN(dance_mouse_layer),
-    [TD_LAYER_9and3] = ACTION_TAP_DANCE_FN(dance_layers_9and3),
+    [TD_CTL_TAB]             = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_TAB),
+    [TD_MPLY_MNXT]           = ACTION_TAP_DANCE_DOUBLE(KC_MPLY, KC_MNXT),
+    [TD_MAC_F8]              = ACTION_TAP_DANCE_DOUBLE(KC_F8, KC_MPLY),
+    [TD_TGLIPT]              = ACTION_TAP_DANCE_DOUBLE(G(KC_8), G(KC_7)),
+    [TD_MS_LYR]              = ACTION_TAP_DANCE_FN(dance_mouse_layer),
+    [TD_LYR_93]              = ACTION_TAP_DANCE_FN(dance_layers_9and3),
+    [TD_LCTL_LAYER_CURSOR]   = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, TG(CURSOR)),
 };
 
 // combos definitions
-const uint16_t PROGMEM esc_combo[]    = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM alfred_combo[] = {KC_F, KC_J, COMBO_END};
-/* const uint16_t PROGMEM click_combo[]      = {KC_G, KC_H, COMBO_END}; */
-/* const uint16_t PROGMEM lang_combo[]       = {KC_D, KC_K, COMBO_END}; */
+const uint16_t PROGMEM esc_combo[]        = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM alfred_combo[]     = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM centralize_combo[] = {KC_LGUI, KC_RGUI, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(esc_combo, FORCE_ESC),
-    COMBO(alfred_combo, LGUI(KC_J)),
-    /* COMBO(click_combo, KC_BTN1), */
-    /* COMBO(lang_combo, LGUI(KC_SPC)), */
+    COMBO(esc_combo,        FORCE_ESC),
+    COMBO(alfred_combo,     LGUI(KC_J)),
     COMBO(centralize_combo, LCTL(LALT(LCMD(KC_C)))),
 };
 
@@ -497,33 +520,57 @@ combo_t key_combos[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT(
-    KC_EQL,             KC_1,      KC_2,  KC_3,       KC_4,      KC_5,   KC_ESC,                                              KC_ESC,            KC_6,    KC_7,        KC_8,       KC_9,    KC_0,           KC_MINS,
-    KC_TAB,             KC_Q,      KC_W,  LT(2,KC_E), KC_R,      KC_T,   KC_BSPC,                                             KC_BSPC,           KC_Y,    KC_U,        LT(2,KC_I), KC_O,    KC_P,           KC_BSLS,
-    TD(TD_MOUSE_LAYER), LT(8,KC_A),KC_S,  LT(1,KC_D), KC_F,      KC_G,   KC_ENT,                                              KC_ENT,            KC_H,    KC_J,        KC_K,       KC_L,    LT(8,KC_SCLN),  MT(MOD_RGUI, KC_QUOT),
-    C(A(G(KC_T))),      KC_Z,      KC_X,  LT(5,KC_C), LT(9,KC_V),KC_B,   KC_ESC,                                              KC_ESC,            KC_N,    LT(9,KC_M),  KC_COMM,    KC_DOT,  KC_SLSH,        TD(TD_SWITCH_LANG),
-    KC_LCTL,            KC_LALT,   KC_NO,             KC_NO,     KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_LCTL_TAB),TD(TD_RCTL_TAB), MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                  KC_NO,   KC_RALT ,       TD(TD_LAYER_9and3)
+    KC_EQL,        KC_1,            KC_2,   KC_3,           KC_4,      KC_5,   KC_ESC,                                              KC_ESC,            KC_6,    KC_7,        KC_8,           KC_9,    KC_0,                 KC_MINS,
+    KC_TAB,        KC_Q,            KC_W,   LT(_WNDW,KC_E), KC_R,      KC_T,   KC_BSPC,                                             KC_BSPC,           KC_Y,    KC_U,        LT(_WNDW,KC_I), KC_O,    KC_P,                 KC_BSLS,
+    TD(TD_MS_LYR), LT(_SBLNUM,KC_A),KC_S,   LT(_BRWSR,KC_D),KC_F,      KC_G,   KC_ENT,                                              KC_ENT,            KC_H,    KC_J,        KC_K,           KC_L,    LT(_SBLNUM,KC_SCLN),  MT(MOD_RGUI, KC_QUOT),
+    C(A(G(KC_T))), KC_Z,            KC_X,   LT(_DLV,KC_C),  KC_V,KC_B, KC_ESC,                                                      KC_ESC,            KC_N,    KC_M,        KC_COMM,        KC_DOT,  KC_SLSH,              TD(TD_TGLIPT),
+    KC_LCTL,       KC_LALT,         KC_LEFT,                KC_RIGHT,  KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_CTL_TAB),TD(TD_CTL_TAB),  MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                      KC_NO,   KC_RALT ,             TD(TD_LYR_93)
+    // KC_EQL,                  KC_1,      KC_2,  KC_3,       KC_4,      KC_5,   KC_ESC,                                              KC_ESC,            KC_6,    KC_7,        KC_8,       KC_9,    KC_0,           KC_MINS,
+    // KC_TAB,                  KC_Q,      KC_W,  LT(2,KC_E), KC_R,      KC_T,   KC_BSPC,                                             KC_BSPC,           KC_Y,    KC_U,        LT(2,KC_I), KC_O,    KC_P,           KC_BSLS,
+    // TD(TD_MOUSE_LAYER),      LT(8,KC_A),KC_S,  LT(1,KC_D), KC_F,      KC_G,   KC_ENT,                                              KC_ENT,            KC_H,    KC_J,        KC_K,       KC_L,    LT(8,KC_SCLN),  MT(MOD_RGUI, KC_QUOT),
+    // C(A(G(KC_T))),           KC_Z,      KC_X,  LT(5,KC_C), LT(9,KC_V),KC_B,   KC_ESC,                                              KC_ESC,            KC_N,    LT(9,KC_M),  KC_COMM,    KC_DOT,  KC_SLSH,        TD(TD_SWITCH_LANG),
+    // KC_LCTL,               KC_LALT,   KC_LEFT,             KC_RIGHT,     KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_LCTL_TAB),TD(TD_RCTL_TAB), MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                  KC_NO,   KC_RALT ,       TD(TD_LAYER_9and3)
     /* KC_EQL,             KC_1,      KC_2,  KC_3,        KC_4,      KC_5,   KC_LBRC,                                             KC_RBRC,            KC_6,    KC_7,        KC_8,       KC_9,    KC_0,           KC_MINS, */
     /* KC_TAB,             KC_Q,      KC_W,  LT(2, KC_E), KC_R,      KC_T,   KC_BSPC,                                             KC_BSPC ,           KC_Y,    KC_U,        LT(2,KC_I), KC_O,    KC_P,           KC_BSLS, */
     /* TD(TD_MOUSE_LAYER), LT(8,KC_A),KC_S,  LT(1, KC_D), KC_F,      KC_G,   KC_ENT ,                                             KC_ENT,             KC_H,    KC_J,        KC_K,       KC_L,    LT(8, KC_SCLN), MT(MOD_RGUI, KC_QUOT), */
     /* C(A(G(KC_T))),      KC_Z,      KC_X,  LT(5, KC_C), LT(9,KC_V),KC_B,   KC_NO  ,                                             KC_NO ,             KC_N,    LT(9,KC_M),  KC_COMM,    KC_DOT,  KC_SLSH,        TD(TD_SWITCH_LANG), */
     /* KC_LCTL,            KC_LALT,   KC_NO,              KC_NO,     KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_LCTL_TAB),TD(TD_RCTL_TAB), MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                  KC_NO,   KC_RALT ,       KC_NO */
   ),
-  [_BROWSER] = LAYOUT(
+  [_BRWSR] = LAYOUT(
     KC_TRNS, G(KC_0), G(KC_1), G(KC_2), G(KC_3), KC_TRNS,   _______,                         _______, KC_MS_L,      KC_MS_D, KC_MS_U,      KC_MS_R,   KC_TRNS, _______,
-    KC_TRNS, KC_NO,   KC_BTN5, KC_BTN4, G(KC_R), G(KC_T),   KC_TRNS,                         KC_TRNS, KC_LEFT,      KC_DOWN, LT(2, KC_UP), KC_RGHT,   KC_TRNS, _______,
+    KC_TRNS, KC_NO,   KC_BTN5, KC_BTN4, G(KC_R), G(KC_T),   KC_TRNS,                         KC_TRNS, KC_LEFT,      KC_DOWN, LT(_WNDW, KC_UP), KC_RGHT,   KC_TRNS, _______,
     KC_TRNS, G(KC_A), G(KC_S), G(KC_W), KC_BTN1, KC_BTN3,   KC_TRNS,                         KC_TRNS, C(S(KC_TAB)), KC_WH_D, KC_WH_U,      C(KC_TAB), G(KC_W), KC_BTN1,
     KC_TRNS, G(KC_Z), KC_TRNS, G(KC_C), G(KC_V), DBL_CLK,   _______,                         _______, G(KC_V),      KC_BTN1, KC_BTN2,      KC_BTN3,   G(KC_F), KC_TRNS,
-    KC_TRNS, KC_TRNS, _______,          KC_NO,   KC_TRNS, S(KC_SPC), KC_BTN1,        KC_BTN2, KC_SPC, KC_TRNS,      KC_NO,                 _______,   KC_TRNS, S(G(KC_T))
+    KC_TRNS, KC_TRNS, _______,          KC_NO,   KC_TRNS,   S(KC_SPC), KC_BTN1,     KC_BTN2, KC_SPC,  KC_TRNS,      KC_NO,                 _______,   KC_TRNS, S(G(KC_T))
   ),
-   // layer for window manipuration
-  [_WINDOW] = LAYOUT(
+  [_LEFT] = LAYOUT(
+    KC_TRNS,   KC_TRNS, KC_TRNS,          KC_TRNS,      G(KC_R),   KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS,   KC_TRNS, KC_RGHT,          C(S(KC_TAB)), C(KC_TAB), G(KC_T),KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    TG(_LEFT), G(KC_A), G(KC_S),          G(KC_W),      KC_BTN1,   KC_BTN3,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS,   G(KC_Z), COPY_OPENING_URL, G(KC_C),      G(KC_V),   KC_RGHT,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    S(G(KC_T)),KC_TRNS, KC_TRNS,                        KC_TRNS,   KC_TRNS,S(KC_SPC),KC_SPC,KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
+  ),
+  [_SBLNUM] = LAYOUT(
+    KC_TRNS,       S(G(KC_4)), S(G(KC_5)), C(S(G(KC_4))), KC_TAB,     KC_NO,       KC_TRNS,                       KC_TRNS, S(KC_MINS), KC_F7,   KC_NO,   KC_NO,   KC_SLSH,   KC_NO,
+    KC_TRNS,       S(KC_1),    S(KC_2),    S(KC_LBRC),    S(KC_RBRC), S(KC_BSLS),  KC_TRNS,                       KC_TRNS, KC_UP,      KC_7,    KC_8,    KC_9,    S(KC_8),   KC_F12,
+    KC_TRNS,       S(KC_3),    S(KC_4),    S(KC_9),       S(KC_0),    KC_GRV,      KC_BTN1,                       KC_BTN1, KC_DOWN,    KC_4,    KC_5,    KC_6,    S(KC_EQL), KC_TRNS,
+    C(A(G(KC_X))), S(KC_5),    S(KC_6),    KC_LBRC,       KC_RBRC,    S(KC_GRV),   KC_WH_D,                       KC_WH_D, S(KC_7),    KC_1,    KC_2,    KC_3,    KC_MINS,   KC_TRNS,
+    KC_TRNS,       KC_EQL,     KC_TRNS,                   KC_NO  ,    KC_TRNS,     KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS, KC_TRNS,    KC_NO,            KC_0,    KC_EQL,    KC_TRNS
+  ),
+  [_WNDW] = LAYOUT(
     KC_NO, KC_NO, KC_NO,         C(A(G(KC_5))), KC_NO,        KC_NO,KC_NO,                       KC_NO, C(A(G(KC_6))), C(A(G(KC_7))),   C(A(G(KC_8))),    C(A(G(KC_9))), KC_NO,            KC_NO,
     KC_NO, KC_NO, KC_NO,         C(A(G(KC_7))), KC_NO,        KC_NO,KC_NO,                       KC_NO, C(A(G(KC_Y))), C(A(G(KC_U))),   C(A(G(KC_I))),    C(A(G(KC_O))), KC_NO,            KC_NO,
     KC_NO, KC_NO, C(A(G(KC_A))), C(A(G(KC_E))), C(A(G(KC_0))),KC_NO,KC_NO,                       KC_NO, C(A(G(KC_H))), C(A(G(KC_J))),   C(A(G(KC_K))),    C(A(G(KC_L))), C(A(G(KC_SCLN))), KC_NO,
     KC_NO, KC_NO, KC_NO,         C(A(G(KC_8))), KC_NO,        KC_NO,KC_NO,                       KC_NO, C(A(G(KC_N))), C(A(G(KC_DOT))), C(A(G(KC_COMM))), C(A(G(KC_M))), KC_NO,            KC_NO,
     KC_NO, KC_NO, KC_NO,                        KC_NO,        KC_NO,KC_NO,KC_NO,       KC_NO,    KC_NO, KC_NO,         KC_NO,                             KC_NO,         KC_NO,            KC_TRNS
   ),
-  // layer for vim-like movement
+  [_DLV] = LAYOUT(
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, DELVE_DOWN_FRAME,DELVE_UP_FRAME,KC_TRNS,       KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, DELVE_NEXT,      DELVE_STEPIN,  DELVE_STEPOUT, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, DELVE_CONTINUE,  DELVE_EXIT,    KC_TRNS,       KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,                        KC_TRNS,       KC_TRNS, KC_TRNS
+  ),
   [_VIM] = LAYOUT(
     KC_NO, G(KC_0), G(KC_1), G(KC_2),   KC_NO,   KC_NO,  KC_NO,                   KC_NO,  KC_NO,   KC_NO,   KC_NO, KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_NO,   KC_NO,   KC_NO,     KC_NO,   KC_NO,  KC_NO,                   KC_NO,  KC_NO,   KC_NO,   KC_NO, G(KC_O), KC_NO, KC_NO,
@@ -531,54 +578,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO, KC_TRNS, KC_NO,   A(G(KC_D)),KC_NO,   KC_NO,  KC_ENT,                  KC_ENT, KC_NO,   KC_BTN2, KC_NO, KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_NO,   KC_TRNS,            KC_NO,   KC_TRNS,KC_TRNS,KC_BTN1, KC_BTN2,KC_TRNS,KC_TRNS, KC_NO,          KC_NO,   KC_NO, KC_TRNS
   ),
-  // layer for left-handed browser
-  [_LEFT] = LAYOUT(
-    KC_TRNS,   KC_TRNS, KC_TRNS,          KC_TRNS,      G(KC_R),   KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_RGHT,          C(S(KC_TAB)), C(KC_TAB), G(KC_T),KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    TG(4),     G(KC_A), G(KC_S),          G(KC_W),      KC_BTN1,   KC_BTN3,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS,   G(KC_Z), COPY_OPENING_URL, G(KC_C),      G(KC_V),   KC_RGHT,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    S(G(KC_T)),KC_TRNS, KC_TRNS,                        KC_TRNS,   KC_TRNS,S(KC_SPC),LT(6, KC_SPC),KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
-  ),
-  // layer for delve/debugger 2
-  [_DELVE] = LAYOUT(
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS,         KC_TRNS,       KC_TRNS,       KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, DELVE_DOWN_FRAME,DELVE_UP_FRAME,KC_TRNS,       KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, DELVE_NEXT,      DELVE_STEPIN,  DELVE_STEPOUT, KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, DELVE_CONTINUE,  DELVE_EXIT,    KC_TRNS,       KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,                        KC_TRNS,       KC_TRNS, KC_TRNS
-  ),
-    // layer for left-handed vim-like movement
-  [_LVIM] = LAYOUT(
-    KC_NO, KC_NO, KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO,   KC_WH_U, KC_WH_D, KC_NO,  KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO,            KC_NO,   KC_NO,  KC_NO,   KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
-  ),
-  // layer for only hjkl vim-like movement
-  [_VIMX] = LAYOUT(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,KC_NO,                       KC_NO, KC_NO,   KC_NO,   KC_NO, KC_NO,    KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,KC_NO,                       KC_NO, KC_NO,   KC_NO,   KC_NO, KC_NO,    KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,KC_NO,                       KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,KC_NO,                       KC_NO, KC_NO,   KC_NO,   KC_NO, KC_NO,    KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO,KC_NO,KC_NO,       KC_NO,    KC_NO, KC_NO,   KC_NO,          KC_NO,    KC_NO, KC_NO
-  ),
-  // layer for ErgoDox EZ like function/number/symbols key bindings
-  [_ERGODOX] = LAYOUT(
-    KC_TRNS,       S(G(KC_4)), S(G(KC_5)), C(S(G(KC_4))), KC_TAB,     KC_NO,       KC_TRNS,                       KC_TRNS, S(KC_MINS), KC_F7,   KC_NO,   KC_NO,   KC_SLSH,   KC_NO,
-    KC_TRNS,       S(KC_1),    S(KC_2),    S(KC_LBRC),    S(KC_RBRC), S(KC_BSLS),  KC_TRNS,                       KC_TRNS, KC_UP,      KC_7,    KC_8,    KC_9,    S(KC_8),   KC_F12,
-    KC_TRNS,       S(KC_3),    S(KC_4),    S(KC_9),       S(KC_0),    KC_GRV,      KC_BTN1,                       KC_BTN1, KC_DOWN,    KC_4,    KC_5,    KC_6,    S(KC_EQL), KC_TRNS,
-    C(A(G(KC_X))), S(KC_5),    S(KC_6),    KC_LBRC,       KC_RBRC,    S(KC_GRV),   KC_WH_D,                       KC_WH_D, S(KC_7),    KC_1,    KC_2,    KC_3,    KC_MINS,   KC_TRNS,
-    KC_TRNS,       KC_EQL,     KC_TRNS,                   KC_NO  ,    KC_TRNS,     KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS, KC_TRNS,    KC_NO,            KC_0,    KC_EQL,    KC_TRNS
-  ),
-  // layer for Function keys and vim movement without scrolling cursor
-  [_VIMSCROLL] = LAYOUT(
+  [_VIMSCRL] = LAYOUT(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_J,  KC_K,  KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_H, C(KC_E),       C(KC_E), C(KC_E),C(KC_E),C(KC_E), C(KC_E),    C(KC_E), C(KC_E), C(KC_E),      C(KC_E), KC_L,  KC_TRNS
   ),
+  // // layer for
+  // [_CURSOR] = LAYOUT(
+  //   KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
+  //   KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
+  //   KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_J,  KC_K,  KC_NO,   KC_NO, KC_NO,
+  //   KC_NO, KC_NO, KC_NO,  KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
+  //   TD(TD_LCTL_LAYER_CURSOR), KC_NO, KC_LEFT,       KC_RIGHT,KC_NO,  KC_NO, KC_NO,          KC_NO,KC_NO,   KC_NO,   KC_NO,        KC_NO,   KC_NO, KC_NO
+  // ),
   /* [_EMPTY] = LAYOUT( */
   /*   _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, */
   /*   _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, */
