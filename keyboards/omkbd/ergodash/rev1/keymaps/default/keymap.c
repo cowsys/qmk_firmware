@@ -293,14 +293,11 @@ void keyboard_post_init_user(void) {
 
 
 enum layer_names {
-    /* _QWERTY, */
-    /* _LOWER, */
-    /* _RAISE, */
-    /* _ADJUST, */
     _BASE,
     _BRWSR,
     _WNDW,
     _VIM,
+    _LVIM,
     _LEFT,
     _DLV,
     _SBLNUM,
@@ -324,30 +321,28 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(2, layer_state_cmp(state, _WNDW));
     rgblight_set_layer_state(3, layer_state_cmp(state, _DLV));
     rgblight_set_layer_state(4, layer_state_cmp(state, _SBLNUM));
-    rgblight_set_layer_state(5, layer_state_cmp(state, _LEFT));
+    // rgblight_set_layer_state(5, layer_state_cmp(state, _LEFT));
     rgblight_set_layer_state(6, layer_state_cmp(state, _VIMSCRL));
     rgblight_set_layer_state(7, layer_state_cmp(state, _VIM));
+    rgblight_set_layer_state(8, layer_state_cmp(state, _LVIM));
     rgblight_set_layer_state(9, layer_state_cmp(state, _CURSOR));
     // rgblight_set_layer_state(3, layer_state_cmp(state, _ADJUST));
     return state;
 }
 
 enum custom_keycodes {
-  /* QWERTY = SAFE_RANGE, */
-  /* LOWER, */
-  /* RAISE, */
-  /* ADJUST, */
-  BASE = SAFE_RANGE,
-  BROWSER,
-  WINDOW,
-  VIM,
-  LEFT,
-  DELVE, // 5
-  LVIM,
-  VIMX,
-  ERGODOX,
-  VIMSCROLL, // 9
-  CURSOR,
+  // BASE = SAFE_RANGE,
+  // BROWSER,
+  // WINDOW,
+  // VIM,
+  // LEFT,
+  // DELVE, // 5
+  // LVIM,
+  // VIMX,
+  // ERGODOX,
+  // VIMSCROLL, // 9
+  // CURSOR,
+  CURSOR = SAFE_RANGE,
   DELVE_NEXT,
   DELVE_STEPIN,
   DELVE_STEPOUT,
@@ -361,7 +356,7 @@ enum custom_keycodes {
   SAVE_IMAGE,
   SAVE_IMAGE2,
   FORCE_ESC,
-  COPY_OPENING_URL,
+  CP_URL,
 };
 
 
@@ -446,10 +441,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case FORCE_ESC:
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_ESC) SS_LGUI("9"));
+                SEND_STRING(SS_TAP(X_ESC) SS_LGUI("8"));
             }
             break;
-        case COPY_OPENING_URL:
+        case CP_URL:
             if (record->event.pressed) {
                 register_code(KC_LGUI);
                 register_code(KC_L);
@@ -468,8 +463,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void dance_mouse_layer(tap_dance_state_t *state, void *user_data) {
     // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_layers.md
     if (state->count == _BRWSR){
+        uprintf("BRWSR pressed\n");
         layer_invert(_BRWSR);
     } else {
+        uprintf(" pressed\n");
         layer_invert(_LEFT);
     }
 }
@@ -525,16 +522,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TD(TD_MS_LYR), LT(_SBLNUM,KC_A),KC_S,   LT(_BRWSR,KC_D),KC_F,      KC_G,   KC_ENT,                                              KC_ENT,            KC_H,    KC_J,        KC_K,           KC_L,    LT(_SBLNUM,KC_SCLN),  MT(MOD_RGUI, KC_QUOT),
     C(A(G(KC_T))), KC_Z,            KC_X,   LT(_DLV,KC_C),  KC_V,KC_B, KC_ESC,                                                      KC_ESC,            KC_N,    KC_M,        KC_COMM,        KC_DOT,  KC_SLSH,              TD(TD_TGLIPT),
     KC_LCTL,       KC_LALT,         KC_LEFT,                KC_RIGHT,  KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_CTL_TAB),TD(TD_CTL_TAB),  MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                      KC_NO,   KC_RALT ,             TD(TD_LYR_93)
-    // KC_EQL,                  KC_1,      KC_2,  KC_3,       KC_4,      KC_5,   KC_ESC,                                              KC_ESC,            KC_6,    KC_7,        KC_8,       KC_9,    KC_0,           KC_MINS,
-    // KC_TAB,                  KC_Q,      KC_W,  LT(2,KC_E), KC_R,      KC_T,   KC_BSPC,                                             KC_BSPC,           KC_Y,    KC_U,        LT(2,KC_I), KC_O,    KC_P,           KC_BSLS,
-    // TD(TD_MOUSE_LAYER),      LT(8,KC_A),KC_S,  LT(1,KC_D), KC_F,      KC_G,   KC_ENT,                                              KC_ENT,            KC_H,    KC_J,        KC_K,       KC_L,    LT(8,KC_SCLN),  MT(MOD_RGUI, KC_QUOT),
-    // C(A(G(KC_T))),           KC_Z,      KC_X,  LT(5,KC_C), LT(9,KC_V),KC_B,   KC_ESC,                                              KC_ESC,            KC_N,    LT(9,KC_M),  KC_COMM,    KC_DOT,  KC_SLSH,        TD(TD_SWITCH_LANG),
-    // KC_LCTL,               KC_LALT,   KC_LEFT,             KC_RIGHT,     KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_LCTL_TAB),TD(TD_RCTL_TAB), MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                  KC_NO,   KC_RALT ,       TD(TD_LAYER_9and3)
-    /* KC_EQL,             KC_1,      KC_2,  KC_3,        KC_4,      KC_5,   KC_LBRC,                                             KC_RBRC,            KC_6,    KC_7,        KC_8,       KC_9,    KC_0,           KC_MINS, */
-    /* KC_TAB,             KC_Q,      KC_W,  LT(2, KC_E), KC_R,      KC_T,   KC_BSPC,                                             KC_BSPC ,           KC_Y,    KC_U,        LT(2,KC_I), KC_O,    KC_P,           KC_BSLS, */
-    /* TD(TD_MOUSE_LAYER), LT(8,KC_A),KC_S,  LT(1, KC_D), KC_F,      KC_G,   KC_ENT ,                                             KC_ENT,             KC_H,    KC_J,        KC_K,       KC_L,    LT(8, KC_SCLN), MT(MOD_RGUI, KC_QUOT), */
-    /* C(A(G(KC_T))),      KC_Z,      KC_X,  LT(5, KC_C), LT(9,KC_V),KC_B,   KC_NO  ,                                             KC_NO ,             KC_N,    LT(9,KC_M),  KC_COMM,    KC_DOT,  KC_SLSH,        TD(TD_SWITCH_LANG), */
-    /* KC_LCTL,            KC_LALT,   KC_NO,              KC_NO,     KC_LGUI,MT(MOD_LSFT,KC_SPC),TD(TD_LCTL_TAB),TD(TD_RCTL_TAB), MT(MOD_RSFT,KC_SPC),KC_RGUI, KC_NO ,                  KC_NO,   KC_RALT ,       KC_NO */
   ),
   [_BRWSR] = LAYOUT(
     KC_TRNS, G(KC_0), G(KC_1), G(KC_2), G(KC_3), KC_TRNS,   _______,                         _______, KC_MS_L,      KC_MS_D, KC_MS_U,      KC_MS_R,   KC_TRNS, _______,
@@ -544,11 +531,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS, KC_TRNS, _______,          KC_NO,   KC_TRNS,   S(KC_SPC), KC_BTN1,     KC_BTN2, KC_SPC,  KC_TRNS,      KC_NO,                 _______,   KC_TRNS, S(G(KC_T))
   ),
   [_LEFT] = LAYOUT(
-    KC_TRNS,   KC_TRNS, KC_TRNS,          KC_TRNS,      G(KC_R),   KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_RGHT,          C(S(KC_TAB)), C(KC_TAB), G(KC_T),KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    TG(_LEFT), G(KC_A), G(KC_S),          G(KC_W),      KC_BTN1,   KC_BTN3,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_TRNS,   G(KC_Z), COPY_OPENING_URL, G(KC_C),      G(KC_V),   KC_RGHT,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    S(G(KC_T)),KC_TRNS, KC_TRNS,                        KC_TRNS,   KC_TRNS,S(KC_SPC),KC_SPC,KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,      G(KC_R),   KC_TRNS,KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS,   KC_TRNS, KC_RGHT, C(S(KC_TAB)), C(KC_TAB), G(KC_T),KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    TG(_LEFT), G(KC_A), G(KC_S), G(KC_W),      KC_BTN1,   KC_BTN3,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    KC_TRNS,   G(KC_Z), CP_URL,  G(KC_C),      G(KC_V),   KC_RGHT,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    S(G(KC_T)),KC_TRNS, KC_TRNS,               KC_TRNS,   KC_TRNS,S(KC_SPC),LT(_LVIM,KC_SPC)     ,KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
+    // S(G(KC_T)),KC_TRNS, KC_TRNS,               KC_TRNS,   KC_TRNS,S(KC_SPC),LT(_LVIM,KC_SPC),KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
   ),
   [_SBLNUM] = LAYOUT(
     KC_TRNS,       S(G(KC_4)), S(G(KC_5)), C(S(G(KC_4))), KC_TAB,     KC_NO,       KC_TRNS,                       KC_TRNS, S(KC_MINS), KC_F7,   KC_NO,   KC_NO,   KC_SLSH,   KC_NO,
@@ -577,6 +565,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO, KC_NO,   KC_NO,   G(KC_BSPC),KC_BTN1, KC_NO,  KC_NO,                   KC_NO,  KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,KC_NO, KC_NO,
     KC_NO, KC_TRNS, KC_NO,   A(G(KC_D)),KC_NO,   KC_NO,  KC_ENT,                  KC_ENT, KC_NO,   KC_BTN2, KC_NO, KC_NO,   KC_NO, KC_NO,
     KC_NO, KC_NO,   KC_TRNS,            KC_NO,   KC_TRNS,KC_TRNS,KC_BTN1, KC_BTN2,KC_TRNS,KC_TRNS, KC_NO,          KC_NO,   KC_NO, KC_TRNS
+  ),
+  [_LVIM] = LAYOUT(
+    KC_NO, KC_NO, KC_MS_L, KC_MS_U, KC_MS_D, KC_MS_R,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO,   KC_WH_U, KC_WH_D, KC_NO,  KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO,            KC_NO,   KC_NO,  KC_NO, KC_TRNS,    KC_NO,    KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
   ),
   [_VIMSCRL] = LAYOUT(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
