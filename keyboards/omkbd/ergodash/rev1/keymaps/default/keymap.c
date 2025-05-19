@@ -295,14 +295,14 @@ void keyboard_post_init_user(void) {
 enum layer_names {
     _BASE,
     _BRWSR,
+    _LEFT,
+    _SBLNUM,
     _WNDW,
+    _DLV,
     _VIM,
     _LVIM,
-    _LEFT,
-    _DLV,
-    _SBLNUM,
-    _VIMSCRL,
-    _CURSOR
+    _VIMSCRL
+    // _CURSOR
 };
 
 // https://docs.qmk.fm/feature_layers#functions
@@ -321,11 +321,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(2, layer_state_cmp(state, _WNDW));
     rgblight_set_layer_state(3, layer_state_cmp(state, _DLV));
     rgblight_set_layer_state(4, layer_state_cmp(state, _SBLNUM));
-    // rgblight_set_layer_state(5, layer_state_cmp(state, _LEFT));
+    rgblight_set_layer_state(5, layer_state_cmp(state, _LEFT));
     rgblight_set_layer_state(6, layer_state_cmp(state, _VIMSCRL));
     rgblight_set_layer_state(7, layer_state_cmp(state, _VIM));
     rgblight_set_layer_state(8, layer_state_cmp(state, _LVIM));
-    rgblight_set_layer_state(9, layer_state_cmp(state, _CURSOR));
+    // rgblight_set_layer_state(8, layer_state_cmp(state, _LVIM));
+    // rgblight_set_layer_state(9, layer_state_cmp(state, _CURSOR));
     // rgblight_set_layer_state(3, layer_state_cmp(state, _ADJUST));
     return state;
 }
@@ -536,7 +537,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TG(_LEFT), G(KC_A), G(KC_S), G(KC_W),      KC_BTN1,   KC_BTN3,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     KC_TRNS,   G(KC_Z), CP_URL,  G(KC_C),      G(KC_V),   KC_RGHT,KC_TRNS,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
     S(G(KC_T)),KC_TRNS, KC_TRNS,               KC_TRNS,   KC_TRNS,S(KC_SPC),LT(_LVIM,KC_SPC)     ,KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
-    // S(G(KC_T)),KC_TRNS, KC_TRNS,               KC_TRNS,   KC_TRNS,S(KC_SPC),LT(_LVIM,KC_SPC),KC_TRNS,KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS
   ),
   [_SBLNUM] = LAYOUT(
     KC_TRNS,       S(G(KC_4)), S(G(KC_5)), C(S(G(KC_4))), KC_TAB,     KC_NO,       KC_TRNS,                       KC_TRNS, S(KC_MINS), KC_F7,   KC_NO,   KC_NO,   KC_SLSH,   KC_NO,
@@ -571,7 +571,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO, KC_NO, KC_WH_L, KC_WH_U, KC_WH_D, KC_WH_R,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO,   KC_WH_U, KC_WH_D, KC_NO,  KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO,            KC_NO,   KC_NO,  KC_NO, KC_TRNS,    KC_NO,    KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
+    KC_NO, KC_NO, KC_NO,            KC_NO,   KC_NO,  KC_NO, KC_NO,    KC_NO,      KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
   ),
   [_VIMSCRL] = LAYOUT(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,  KC_NO,                       KC_NO,   KC_NO,   KC_NO, KC_NO, KC_NO,   KC_NO, KC_NO,
